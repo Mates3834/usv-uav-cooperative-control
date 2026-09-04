@@ -1,0 +1,36 @@
+import matplotlib.pyplot as plt
+from src.simulation import run
+
+usv_path, uav_mission, h, m = run()
+print(m)
+
+plt.figure()
+plt.plot(usv_path[:,0], usv_path[:,1], "--", label="USV reference route")
+plt.plot(h["usv"][:,0], h["usv"][:,1], label="USV trajectory")
+plt.plot(h["uav"][:,0], h["uav"][:,1], label="UAV trajectory")
+plt.scatter(uav_mission[:,0], uav_mission[:,1], marker="x", label="UAV mission waypoints")
+plt.axis("equal")
+plt.grid(True)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Cooperative USV-UAV Control")
+plt.legend()
+
+plt.figure()
+plt.plot(h["t"], h["separation"], label="USV-UAV separation")
+plt.plot(h["t"], h["recovery_error"], label="Recovery-point error")
+plt.grid(True)
+plt.xlabel("Time [s]")
+plt.ylabel("Distance")
+plt.title("Relative USV-UAV State")
+plt.legend()
+
+plt.figure()
+plt.plot(h["t"], h["comm_prob"], label="Communication success probability")
+plt.grid(True)
+plt.xlabel("Time [s]")
+plt.ylabel("Probability")
+plt.ylim(0,1.05)
+plt.title("Simplified Communication-Link Quality")
+plt.legend()
+plt.show()

@@ -1,0 +1,11 @@
+{
+  "uav_mission_completion_ratio": 1.0,
+  "communication_dropout_ratio": 0.029166666666666674,
+  "return_commands": 1,
+  "recovery_success": true,
+  "final_recovery_error": 2.264621618709374,
+  "usv_path_length": 79.62203864043737,
+  "uav_path_length": 143.1861940518469,
+  "max_separation": 37.142992162349366,
+  "simulation_time": 47.900000000000006
+}
